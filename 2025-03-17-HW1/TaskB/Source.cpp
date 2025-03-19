@@ -85,8 +85,8 @@ public:
 	Graph(const Graph& graph);
 	~Graph();
 
-	int getArc(int v1, int v2);
-	bool isArc(int v1, int v2);
+	int getAdjency(int v1, int v2);
+	bool isAdjency(int v1, int v2);
 
 	int getCountVertex(void);
 
@@ -104,10 +104,10 @@ public:
 	void printSource(void);
 	void printDrain(void);
 	int vertexCountAdjency(int v);
-	void printCountAdjency();
+	void printVertexCountAdjency();
 
 	int vertexCountArc(int v);
-	void printCountArc(void);
+	void printVertexCountArc(void);
 
 	bool isRegular(void);
 	bool isNoLoop(void);
@@ -142,7 +142,7 @@ int Graph::getCountVertex(void)
 	return m.isInit() ? m.verts - 1 : 0;
 }
 
-int Graph::getArc(int v1, int v2)
+int Graph::getAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -152,7 +152,7 @@ int Graph::getArc(int v1, int v2)
 	return m.data[v1][v2];
 }
 
-bool Graph::isArc(int v1, int v2)
+bool Graph::isAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -420,7 +420,7 @@ int Graph::vertexCountAdjency(int v)
 		return sum_adjency;
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 if (m.isInit())
 {
@@ -453,7 +453,7 @@ int Graph::vertexCountArc(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountArc(void)
+void Graph::printVertexCountArc(void)
 {
 	if (m.isInit())
 	{
@@ -524,8 +524,8 @@ int main(int argc, char* argv[])
 	Graph g;
 
 	g.readEdgeList();
-	// g.printCountArc();
+	// g.printVertexCountArc();
 
-	g.printCountArc();
+	g.printVertexCountArc();
 	return EXIT_SUCCESS;
 }

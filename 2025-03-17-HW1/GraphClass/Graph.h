@@ -85,10 +85,11 @@ public:
 	Graph(const Graph& graph);
 	~Graph();
 
-	int getArc(int v1, int v2);
-	bool isArc(int v1, int v2);
+	int getAdjency(int v1, int v2);
+	bool isAdjency(int v1, int v2);
 
 	int getCountVertex(void);
+	int getCountAdjency(void);
 
 	void readMatrix(int verts = 0);
 	void readAdjencyList();
@@ -104,10 +105,10 @@ public:
 	void printSource(void);
 	void printDrain(void);
 	int vertexCountAdjency(int v);
-	void printCountAdjency();
+	void printVertexCountAdjency();
 
 	int vertexCountArc(int v);
-	void printCountArc(void);
+	void printVertexCountArc(void);
 
 	bool isRegular(void);
 	bool isNoLoop(void);

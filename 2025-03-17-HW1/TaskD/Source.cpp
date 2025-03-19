@@ -85,7 +85,7 @@ public:
 	Graph(const Graph& graph);
 	~Graph();
 
-	int getArc(int v1, int v2);
+	int getAdjency(int v1, int v2);
 	int getCountVertex(void);
 
 	void readMatrix();
@@ -101,17 +101,17 @@ public:
 	void printSource(void);
 	void printDrain(void);
 	int vertexCountAdjency(int v);
-	void printCountAdjency();
+	void printVertexCountAdjency();
 
 	int vertexCountArc(int v);
-	void printCountArc(void);
+	void printVertexCountArc(void);
 
 	bool isRegular(void);
 	bool isNoLoop(void);
 	bool isTournament(void);
 	bool isOrient(void);
 	bool isFull(void);
-	bool isArc(int v1, int v2);
+	bool isAdjency(int v1, int v2);
 
 	int solutionTask10(void);
 	int solutionTaskB(void);
@@ -140,7 +140,7 @@ Graph::~Graph()
 }
 
 
-int Graph::getArc(int v1, int v2)
+int Graph::getAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -395,7 +395,7 @@ int Graph::vertexCountAdjency(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 	if (m.isInit())
 	{
@@ -427,7 +427,7 @@ int Graph::vertexCountArc(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountArc(void)
+void Graph::printVertexCountArc(void)
 {
 	if (m.isInit())
 	{
@@ -438,7 +438,7 @@ void Graph::printCountArc(void)
 	}
 }
 
-bool Graph::isArc(int v1, int v2)
+bool Graph::isAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -462,7 +462,7 @@ int main(int argc, char* argv[])
 	}
 
 	int verts = g.getCountVertex() + 1;
-	int min = g.getArc(1, 2) + g.getArc(1, 3) + g.getArc(2, 3);
+	int min = g.getAdjency(1, 2) + g.getAdjency(1, 3) + g.getAdjency(2, 3);
 
 	for (int i = 1; i < verts; ++i)
 	{
@@ -472,7 +472,7 @@ int main(int argc, char* argv[])
 			{
 				if (i != j && i != k && j != k)
 				{
-					min = std::min(g.getArc(i, j) + g.getArc(i, k) + g.getArc(j, k), min);
+					min = std::min(g.getAdjency(i, j) + g.getAdjency(i, k) + g.getAdjency(j, k), min);
 				}
 			}
 		}

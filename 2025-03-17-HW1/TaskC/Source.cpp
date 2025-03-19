@@ -101,17 +101,17 @@ public:
 	void printSource(void);
 	void printDrain(void);
 	int vertexCountAdjency(int v);
-	void printCountAdjency();
+	void printVertexCountAdjency();
 
 	int vertexCountArc(int v);
-	void printCountArc(void);
+	void printVertexCountArc(void);
 
 	bool isRegular(void);
 	bool isNoLoop(void);
 	bool isTournament(void);
 	bool isOrient(void);
 	bool isFull(void);
-	bool isArc(int v1, int v2);
+	bool isAdjency(int v1, int v2);
 
 	int solutionTask10(void);
 };
@@ -382,7 +382,7 @@ int Graph::vertexCountAdjency(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 	if (m.isInit())
 	{
@@ -414,7 +414,7 @@ int Graph::vertexCountArc(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountArc(void)
+void Graph::printVertexCountArc(void)
 {
 	if (m.isInit())
 	{
@@ -426,7 +426,7 @@ void Graph::printCountArc(void)
 }
 
 
-bool Graph::isArc(int v1, int v2)
+bool Graph::isAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -459,7 +459,7 @@ int main(int argc, char* argv[])
 
 		for (int j = i + 1; j < size; ++j)
 		{
-			if (color_mass[j] != this_color && g.isArc(j + 1, i + 1))
+			if (color_mass[j] != this_color && g.isAdjency(j + 1, i + 1))
 			{
 				res += 1;
 			}

@@ -98,7 +98,7 @@ public:
 	void printDrain(void);
 	int vertexCountAdjency(int v);
 	bool isRegular(void);
-	void printCountAdjency();
+	void printVertexCountAdjency();
 	bool isNoLoop(void);
 	bool isTournament(void);
 	bool isOrient(void);
@@ -381,7 +381,7 @@ bool Graph::isRegular(void)
 	return true;
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 	if (m.isInit())
 	{

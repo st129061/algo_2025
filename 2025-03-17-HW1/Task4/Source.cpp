@@ -84,7 +84,7 @@ public:
 	void printMatrix();
 	void printAdjencyList();
 	void printEdgeList();
-	void printCountAdjency();
+	void printVertexCountAdjency();
 };
 
 Graph::Graph()
@@ -201,7 +201,7 @@ void Graph::printEdgeList()
 	}
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 	for (int i = 1; i < m.verts; ++i)
 	{
@@ -220,6 +220,6 @@ int main(int argc, char* argv[])
 {
 	Graph g;
 	g.readMatrix();
-	g.printCountAdjency();
+	g.printVertexCountAdjency();
 	return EXIT_SUCCESS;
 }

@@ -492,21 +492,9 @@ int main(int argc, char* argv[])
 {
 	Graph g;
 
-	int verts;
+	g.readMatrix();
 
-	std::cin >> verts;
-	g.readEdgeListNoOrient(verts, verts - 1);
-
-	int ans = 0;
-
-	for (int i = 1; i < verts + 1; ++i)
-	{
-		if (g.vertexCountAdjency(i) > 1)
-		{
-			ans += 1;
-		}
-	}
-	std::cout << ans;
+	std::cout << g.getCountAdjency() / 2;
 
 	return EXIT_SUCCESS;
 }

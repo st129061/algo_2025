@@ -91,7 +91,7 @@ public:
 	void printEdgeList();
 	int vertexCountAdjency(int v);
 	bool isRegular(void);
-	void printCountAdjency();
+	void printVertexCountAdjency();
 	bool isOrient(void);
 };
 
@@ -242,7 +242,7 @@ bool Graph::isRegular(void)
 	return true;
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 	if (m.isInit())
 	{

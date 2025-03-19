@@ -26,6 +26,21 @@ int Graph::getCountVertex(void)
 	return m.isInit() ? m.verts - 1 : 0;
 }
 
+int Graph::getCountAdjency(void)
+{
+	int res = 0;
+
+	if (m.isInit())
+	{
+		for (int i = 1; i < m.verts; ++i)
+		{
+			res += vertexCountAdjency(i);
+		}
+	}
+
+	return res;
+}
+
 void Graph::readMatrix(int verts)
 {
 	if (verts == 0)
@@ -291,7 +306,7 @@ int Graph::vertexCountAdjency(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountAdjency()
+void Graph::printVertexCountAdjency()
 {
 	if (m.isInit())
 	{
@@ -323,7 +338,7 @@ int Graph::vertexCountArc(int v)
 	return sum_adjency;
 }
 
-void Graph::printCountArc(void)
+void Graph::printVertexCountArc(void)
 {
 	if (m.isInit())
 	{
@@ -426,7 +441,7 @@ bool Graph::isFull(void)
 	return true;
 }
 
-int Graph::getArc(int v1, int v2)
+int Graph::getAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -436,7 +451,7 @@ int Graph::getArc(int v1, int v2)
 	return m.data[v1][v2];
 }
 
-bool Graph::isArc(int v1, int v2)
+bool Graph::isAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{

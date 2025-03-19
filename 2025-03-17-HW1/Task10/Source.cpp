@@ -85,8 +85,8 @@ public:
 	Graph(const Graph& graph);
 	~Graph();
 
-	int getArc(int v1, int v2);
-	bool isArc(int v1, int v2);
+	int getAdjency(int v1, int v2);
+	bool isAdjency(int v1, int v2);
 
 	int getCountVertex(void);
 
@@ -135,7 +135,7 @@ int Graph::getCountVertex(void)
 	return m.isInit() ? m.verts - 1 : 0;
 }
 
-int Graph::getArc(int v1, int v2)
+int Graph::getAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
@@ -145,7 +145,7 @@ int Graph::getArc(int v1, int v2)
 	return m.data[v1][v2];
 }
 
-bool Graph::isArc(int v1, int v2)
+bool Graph::isAdjency(int v1, int v2)
 {
 	if (!(0 < v1 && v1 < m.verts && 0 < v2 && v2 < m.verts && m.isInit()))
 	{
